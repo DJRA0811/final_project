@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shoe Store</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script>
+    let cart = [];
+
+    function toggleAboutUs() {
+      var aboutUsSection = document.getElementById("about-us");
+      if (aboutUsSection.style.display === "none") {
+        aboutUsSection.style.display = "block";
+      } else {
+        aboutUsSection.style.display = "none";
+      }
+    }
+
+    function toggleProductCollection() {
+      var productCollectionSection = document.getElementById("product-collection");
+      if (productCollectionSection.style.display === "none") {
+        productCollectionSection.style.display = "block";
+        document.getElementById("view-collection-btn").textContent = "Hide Collection";
+      } else {
+        productCollectionSection.style.display = "none";
+        document.getElementById("view-collection-btn").textContent = "View Collection";
+      }
+    }
+
+    function addToCart(product) {
+      cart.push(product.textContent);
+      updateCartDisplay();
+    }
+
+    function updateCartDisplay() {
+      let cartDisplay = document.getElementById("cart-display");
+      cartDisplay.textContent = "Cart: " + cart.join(", ");
+    }
+
+    
+    function createMovingImages() {
+      const container = document.querySelector('.container');
+      const image1 = document.createElement('img');
+      const image2 = document.createElement('img');
+
+      image1.src = '6.jpeg';
+      image2.src = '7.jpg';
+
+      image1.classList.add('moving-image');
+      image2.classList.add('moving-image');
+
+      container.appendChild(image1);
+      container.appendChild(image2);
+
+      setInterval(() => {
+        image1.style.left = `${Math.random() * 100}%`;
+        image1.style.top = `${Math.random() * 100}%`;
+        image2.style.left = `${Math.random() * 100}%`;
+        image2.style.top = `${Math.random() * 100}%`;
+      }, 2000);
+    }
+</script>
+</head>
+<body onload="createMovingImages()">
+    <header>
+        <div style="display: flex; align-items: center;">
+          <img src="1.png" alt="Shoe Store Logo" style="height: 40px; margin-right: 10px;">
+          <h1>Shoe Store</h1>
+        </div>
+        <div id="cart-display"></div>
+      </header>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Shop</a>
+    <a href="#" onclick="toggleAboutUs()">About Us</a>
+    <a href="#" onclick="showContactSection(); return false;">Contact</a>
+    <a href="#" style="background-color: #333; color: #fff;">🛒</a>
+    <a href="#login">Log In</a> 
+    <a href="#signup">Sign Up</a> 
+  </nav>
+
+  <div class="home-section">
+    <img src="download.jpg" alt="Welcome Image" class="welcome-image">
+    <div class="welcome-text-container">
+      <div class="welcome-text">Welcome to Shoe Store</div>
+      <div class="welcome-subtext">Discover the latest fashion trends and high-quality footwear</div>
+    </div>
+  </div>
+
+    <div class="new-arrival">
+      <h2>New Arrival</h2>
+      <a href="#" id="view-collection-btn" onclick="toggleProductCollection()">View Collection →</a>
+    </div>
+
+    <div class="container" id="about-us" style="display: none;">
+      <h2>About Us</h2>
+      <p>We are a leading shoe store that has been providing high-quality footwear to our customers for over a decade. Our mission is to offer a wide selection of stylish and comfortable shoes at affordable prices. We take pride in our exceptional customer service and strive to create a seamless shopping experience for all our customers.</p>
+    </div>
+
+    <section id="product-collection" class="container">
+      <h2>Product Collection</h2>
+      <div class="product-grid">
+        <div class="product-item">
+          <img src="2.png" alt="Nike Air Max 270" style="max-width: 100%; height: auto; margin-bottom: 10px;">
+          <p>Nike Air Max 270</p>
+          <button onclick="addToCart(this)">Add to Cart</button>
+        </div>
+        <div class="product-item">
+          <img src="3.png" alt="Air Running" style="max-width: 100%; height: auto; margin-bottom: 10px;">
+          <p>Nike Air Running shoes </p>
+          <button onclick="addToCart(this)">Add to Cart</button>
+        </div>
+        <div class="product-item">
+          <img src="4.png" alt="Air Jordan" style="max-width: 100%; height: auto; margin-bottom: 10px;">
+          <p>Air Jordan Red</p>
+          <button onclick="addToCart(this)">Add to Cart</button>
+        </div>
+        <div class="product-item">
+          <img src="5.png" alt="Air ForceJs" style="max-width: 100%; height: auto; margin-bottom: 10px;">
+          <p>Air Force Jordan</p>
+          <button onclick="addToCart(this)">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="featured-item">
+      <h2>Featured Item</h2>
+      <img src="2.png" alt="Nike Air Max 270" style="max-width: 100%; height: auto; margin-bottom: 10px;">
+      <p>Nike Air Max 270</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+    </div>
+
+    <div id="contact-section" class="contact-section" style="display: none;">
+      <h2>Contact Us</h2>
+      <p>📞 2024 2024</p>
+    </div>
+  </div>
+
+    <div class="social-media">
+      <h2>Social Media</h2>
+      <a href="#"><img src="facebook.png" alt="Facebook" style="width: 20px; height: 20px;"></a>
+      <a href="#"><img src="instagram.png" alt="Instagram" style="width: 20px; height: 20px;"></a>
+      <a href="#"><img src="twitter.png" alt="Twitter" style="width: 20px; height: 20px;"></a>
+    </div>
+  </div>
+
+  <div class="container" id="about-us" style="display: none;">
+    <h2>About Us</h2>
+    <p>We are a leading shoe store that has been providing high-quality footwear to our customers for over a decade. Our mission is to offer a wide selection of stylish and comfortable shoes at affordable prices. We take pride in our exceptional customer service and strive to create a seamless shopping experience for all our customers.</p>
+  </div>
+  
+  <div class="container">
+    <div class="login-signup-container" id="login-container">
+      <h2>Log In</h2>
+      <div class="form-group">
+        <label for="login-username">Username:</label>
+        <input type="text" id="login-username" name="login-username" required>
+      </div>
+      <div class="form-group">
+        <label for="login-password">Password:</label>
+        <input type="password" id="login-password" name="login-password" required>
+      </div>
+      <button type="submit">Log In</button>
+      <p class="signup-link">Don't have an account? <a href="#" id="signup-link">Sign Up</a></p>
+    </div>
+
+    <div class="login-signup-container" id="signup-container" style="display: none;">
+      <h2>Sign Up</h2>
+      <div class="form-group">
+        <label for="signup-username">Username:</label>
+        <input type="text" id="signup-username" name="signup-username" required>
+      </div>
+      <div class="form-group">
+        <label for="signup-email">Email:</label>
+        <input type="email" id="signup-email" name="signup-email" required>
+      </div>
+      <div class="form-group">
+        <label for="signup-password">Password:</label>
+        <input type="password" id="signup-password" name="signup-password" required>
+      </div>
+      <button type="submit">Sign Up</button>
+    </div>
+
+    <div class="form-buttons">
+      <button id="login-btn">Log In</button>
+      <button id="signup-btn">Sign Up</button>
+    </div>
+  </div>
+
+  </div>
+  <script src="script.js"></script>
+  <footer>
+    <p>&copy; 2024 Shoe Store</p>
+  </footer>
+  <script>
+    function showContactSection() {
+      var contactSection = document.getElementById('contact-section');
+      contactSection.style.display = 'block';
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
